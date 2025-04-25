@@ -1,0 +1,397 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Treys Bins | Trash Bin Cleaning Service</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+    }
+    body {
+      line-height: 1.6;
+      color: #fff;
+      background: linear-gradient(to bottom, #69f0ae, #00c853);
+    }
+    header, section, footer {
+      border: 1px solid #aaa;
+      border-radius: 10px;
+      margin: 20px;
+      padding: 20px;
+    }
+    header {
+      background: url('https://images.unsplash.com/photo-1581579185169-b5b71f7c7d52?auto=format&fit=crop&w=1400&q=80') no-repeat center center/cover;
+      color: #fff;
+      text-align: center;
+      position: relative;
+      padding-top: 320px;
+    }
+    header img {
+      width: 400px;
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .btn {
+      display: inline-block;
+      background: #26a69a;
+      color: #fff;
+      padding: 12px 25px;
+      border-radius: 5px;
+      margin-top: 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .plans {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .card {
+      border: 1px solid #ccc;
+      padding: 25px;
+      border-radius: 10px;
+      background: #263238;
+      color: #fff;
+    }
+    .card .btn {
+      cursor: pointer;
+    }
+    .features, .faq, .calendar-form, .review-section {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .feature {
+      max-width: 300px;
+    }
+    .faq summary {
+      background: #00796b;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      color: #fff;
+    }
+    .faq p {
+      padding-left: 15px;
+    }
+    .calendar-form input,
+    .calendar-form input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .review-section input, .review-section textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .star {
+      font-size: 2rem;
+      cursor: pointer;
+      color: #777;
+    }
+    .star.selected {
+      color: gold;
+    }
+    .review-display {
+      margin-top: 20px;
+    }
+    footer {
+      background: linear-gradient(to top, #00251a, #004d40);
+      color: #fff;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .center-text {
+      text-align: center;
+    }
+
+    /* New styles for the "Why Clean Your Trash Cans?" section */
+    .why-clean-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .why-clean-box {
+      background: #263238;
+      color: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      width: 280px;
+      text-align: center;
+      border: 1px solid #aaa;
+    }
+    .why-clean-box h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+    .why-clean-box p {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    /* Style for the images below the Why Clean section */
+    .before-after-images {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      align-items: center;
+      margin-top: 40px;
+    }
+    .before-after-images .image-container {
+      width: 45%;
+      text-align: center;
+    }
+    .before-after-images img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Enlarge the Before and After Cleaning Text */
+    .before-after-images .image-container h3 {
+      font-size: 2rem; /* Increased font size for better visibility */
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    /* Style for the arrow */
+    .arrow {
+      font-size: 4rem; /* Increased arrow size */
+      color: #fff;
+      margin: 0 20px;
+    }
+
+    /* About Me Section Styles */
+    .about-me {
+      background-color: #263238;
+      color: white;
+      padding: 40px;
+      text-align: center;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+    .about-me img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+    .about-me h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .about-me p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+
+    /* Initially hide the book a cleaning section */
+    #calendar {
+      display: none;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://i.imgur.com/KmsPgwc.jpg" alt="Treys Bins Logo">
+    <h1>Spring Sale! $10 for any size bin!</h1>
+  </header>
+
+  <section>
+    <h2 class="center-text">Why Clean Your Trash Cans?</h2>
+    <div class="why-clean-section">
+      <div class="why-clean-box">
+        <h3>Eliminate Odors</h3>
+        <p>Dirty bins can start to smell over time, attracting pests and causing unpleasant odors to linger around your home.</p>
+      </div>
+      <div class="why-clean-box">
+        <h3>Reduce Germs & Bacteria</h3>
+        <p>Regular cleaning helps reduce the build-up of bacteria and germs that thrive in your trash bins, promoting a healthier environment.</p>
+      </div>
+      <div class="why-clean-box">
+        <h3>Prevent Pests</h3>
+        <p>Unclean bins attract rodents, insects, and other pests. A clean bin keeps your property pest-free.</p>
+      </div>
+      <div class="why-clean-box">
+        <h3>Enhance Curb Appeal</h3>
+        <p>Keeping your trash bins clean helps maintain a neat and tidy appearance for your property, especially when bins are visible from the street.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- "About Me" Section -->
+  <section class="about-me">
+    <img src="https://imgur.com/vO0igQm.jpg" alt="Profile Photo">
+    <h2>About Me</h2>
+    <p>Hello! I'm a 16-year-old sophomore attending University Christian. I'm passionate about starting my own business, and that's why I created Treys Bins! I love helping others maintain clean and fresh spaces, and I’m excited to bring this service to the community. Thank you for supporting my business!</p>
+  </section>
+
+  <!-- Images Section -->
+  <section class="before-after-images">
+    <div class="image-container">
+      <h3 class="center-text">Before Cleaning</h3>
+      <img src="https://imgur.com/JYPqCFi.jpg" alt="Before Trash Bin Cleaning">
+    </div>
+    <div class="arrow">→</div>
+    <div class="image-container">
+      <h3 class="center-text">After Cleaning</h3>
+      <img src="https://imgur.com/iTgubB3.jpg" alt="After Trash Bin Cleaning">
+    </div>
+  </section>
+
+  <section>
+    <h2 class="center-text">Our Cleaning Packages</h2>
+    <div class="plans">
+      <div class="card">
+        <h3>Monthly Shine</h3>
+        <p>$10 per bin</p>
+        <a href="#calendar" class="btn" onclick="setPackage('Monthly Shine - $10')">Choose Plan</a>
+      </div>
+      <div class="card">
+        <h3>Bi-Monthly Fresh</h3>
+        <p>$12 per bin</p>
+        <a href="#calendar" class="btn" onclick="setPackage('Bi-Monthly Fresh - $12')">Choose Plan</a>
+      </div>
+      <div class="card">
+        <h3>Quarterly Clean</h3>
+        <p>$13 per bin</p>
+        <a href="#calendar" class="btn" onclick="setPackage('Quarterly Clean - $13')">Choose Plan</a>
+      </div>
+      <div class="card">
+        <h3>One-Time Service</h3>
+        <p>$15 per bin</p>
+        <a href="#calendar" class="btn" onclick="setPackage('One-Time Service - $15')">Choose Plan</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="calendar">
+    <h2 class="center-text">Book a Cleaning Date</h2>
+    <form class="calendar-form" action="https://formsubmit.co/treysbins@gmail.com" method="POST">
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" name="name" required>
+      <label for="email">Your Email:</label>
+      <input type="email" id="email" name="email" required>
+      <label for="cleaning-date">Select Your Preferred Date:</label>
+      <input type="date" id="cleaning-date" name="cleaning-date" required>
+      <input type="hidden" id="selected-package" name="Package">
+      <input type="submit" value="Schedule Now">
+    </form>
+  </section>
+
+  <!-- Reviews Section -->
+  <section>
+    <h2 class="center-text">Leave a Review</h2>
+    <div class="review-section">
+      <input type="text" id="reviewer-name" placeholder="Your Name">
+      <textarea id="review-text" rows="4" placeholder="Write your review..."></textarea>
+      <div id="star-rating">
+        <span class="star" data-value="1">★</span>
+        <span class="star" data-value="2">★</span>
+        <span class="star" data-value="3">★</span>
+        <span class="star" data-value="4">★</span>
+        <span class="star" data-value="5">★</span>
+      </div>
+      <button onclick="submitReview()" class="btn">Submit Review</button>
+      <div class="review-display" id="review-display"></div>
+    </div>
+  </section>
+
+  <footer>
+    <h3>Treys Bins</h3>
+    <p>Your Local Trash Bin Cleaning Experts</p>
+    <p>&copy; 2025 Treys Bins. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const stars = document.querySelectorAll('.star');
+    let selectedRating = 0;
+
+    stars.forEach(star => {
+      star.addEventListener('click', () => {
+        selectedRating = parseInt(star.getAttribute('data-value'));
+        stars.forEach(s => {
+          s.classList.remove('selected');
+          if (parseInt(s.getAttribute('data-value')) <= selectedRating) {
+            s.classList.add('selected');
+          }
+        });
+      });
+    });
+
+    function submitReview() {
+      const name = document.getElementById('reviewer-name').value;
+      const text = document.getElementById('review-text').value;
+      if (!name || !text || selectedRating === 0) return;
+
+      // Get existing reviews from localStorage
+      let reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+
+      // Add the new review to the array
+      const newReview = {
+        name: name,
+        rating: selectedRating,
+        text: text
+      };
+      reviews.push(newReview);
+
+      // Save the updated reviews array to localStorage
+      localStorage.setItem('reviews', JSON.stringify(reviews));
+
+      // Clear the form fields
+      document.getElementById('reviewer-name').value = '';
+      document.getElementById('review-text').value = '';
+      stars.forEach(s => s.classList.remove('selected'));
+      selectedRating = 0;
+
+      // Display the updated reviews
+      displayReviews();
+    }
+
+    // Display reviews on page load
+    function displayReviews() {
+      const reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+      const reviewDisplay = document.getElementById('review-display');
+      reviewDisplay.innerHTML = ''; // Clear existing reviews
+
+      // Add each review to the display
+      reviews.forEach(review => {
+        const reviewElement = document.createElement('div');
+        reviewElement.innerHTML = `
+          <p><strong>${review.name}</strong> (${review.rating}★): ${review.text}</p>
+        `;
+        reviewDisplay.appendChild(reviewElement);
+      });
+    }
+
+    // Load reviews when the page loads
+    window.onload = displayReviews;
+
+    function setPackage(packageName) {
+      document.getElementById('selected-package').value = packageName;
+      document.getElementById('calendar').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
